@@ -1,0 +1,87 @@
+@font-face{font-family:DM Sans;src:url("assets/fonts/dm-sans.woff2") format("woff2");font-weight:400 700;font-style:normal;font-display:swap}
+@font-face{font-family:Hedvig Letters Serif;src:url("assets/fonts/hedvig-letters-serif.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+:root{--page:#faf9f6;--ink:#272422;--secondary:#585352;--accent:#822b49;--line:#d9d3cd;--serif:"Hedvig Letters Serif",Georgia,serif;--sans:"DM Sans",system-ui,sans-serif;color-scheme:light}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{margin:0;background:var(--page);color:var(--ink);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:4px}
+a:hover{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:5px}
+figure,p,h1,h2,h3,dl,dd,ol{margin:0}
+[hidden]{display:none!important}
+.wrap{width:min(1060px,calc(100% - 96px));margin:0 auto}
+.sitehead{border-bottom:1px solid var(--line)}
+.header-row{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:81px}
+.brand{display:flex;gap:13px;align-items:center;text-decoration:none;font:22px/1.1 var(--serif);letter-spacing:-.04em}
+.monogram{background:var(--accent);color:#fff4f4;display:grid;position:relative;place-content:center;width:34px;height:37px;border-radius:3px;font:22px/1 Georgia,serif;letter-spacing:-2px;padding-right:8px;padding-bottom:5px}
+.monogram span{position:absolute;font:15px/1 Georgia,serif;right:5px;bottom:4px}
+nav{display:flex;align-items:center;gap:29px;font-size:14px;font-weight:550}
+nav a{text-decoration:none}
+.intro{display:grid;grid-template-columns:minmax(0,1fr) clamp(180px,22vw,243px);gap:clamp(48px,7.8vw,107px);align-items:center;padding:72px 0 65px}
+.eyebrow,.venue,.subhead,.tissue figcaption,.portrait figcaption,.timeline dt,.up,.section-link,.profile-links,.filters,.paper-links{font-family:var(--sans)}
+.eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:.14em;font-size:11.5px;font-weight:700;display:flex;align-items:center;gap:12px}
+.short-rule{display:inline-block;height:2px;width:26px;background:var(--accent)}
+h1,h2,h3{font-family:var(--serif);font-weight:400}
+h1{font-size:clamp(48px,5.8vw,80px);line-height:1.12;letter-spacing:-.065em;margin:14px 0 2px}
+.han{font:400 24px/1.55 "Songti SC","STSong",serif;letter-spacing:.18em;color:#675c59;margin-bottom:20px}
+.bio{font-size:16.5px;line-height:1.65;color:#413d3b;max-width:680px}
+.bio+.bio{margin-top:11px}
+.bio strong{font-weight:580;color:var(--ink)}
+.profile-links,.paper-links{display:flex;flex-wrap:wrap;align-items:baseline;gap:0}
+.profile-links{margin-top:23px;font-size:14px;font-weight:650}
+.profile-links a,.paper-links a,.section-link{color:var(--accent);text-decoration:none}
+.profile-links a:hover,.paper-links a:hover,.section-link:hover,.tissue figcaption a:hover,nav a:hover{text-decoration:underline}
+.profile-links a+a::before,.paper-links a+a::before{content:"·";color:#9b8c8d;display:inline-block;margin:0 12px}
+.portrait{align-self:center;max-width:243px}
+.picture{padding:7px;background:#fff;border:1px solid var(--line);border-radius:3px}
+.picture img{display:block;width:100%;height:auto}
+.portrait figcaption{text-align:right;font-size:12px;color:var(--secondary);margin-top:8px}
+.ruled{border-top:1px solid var(--line);padding:33px 0 46px}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:15px;margin-bottom:23px}
+h2{font-size:clamp(32px,3.5vw,44px);line-height:1.1;letter-spacing:-.055em}
+.section-link{font-size:13px;font-weight:600}
+.research-grid{display:grid;grid-template-columns:minmax(200px,.83fr) minmax(0,1.7fr);gap:clamp(24px,4.2vw,64px);align-items:center}
+.tissue img{width:100%;aspect-ratio:1.68;object-fit:cover;display:block;border-radius:2px}
+.tissue figcaption{font-size:12px;color:var(--secondary);margin-top:5px}
+.tissue figcaption a{text-decoration:none}
+.research-notes h3,.paper-list h3{font-size:clamp(21px,2vw,26px);letter-spacing:-.036em;line-height:1.26}
+.research-notes p,.paper-list p{color:var(--secondary);font-size:14.5px;line-height:1.6}
+.research-notes p{margin-top:4px}
+.research-notes>div+div{margin-top:18px}
+.publications .section-head{margin-bottom:10px}
+.publication-summary{margin:0 0 14px;color:var(--secondary);font-size:14px}
+.filters{display:flex;flex-wrap:wrap;gap:7px;margin:4px 0 18px}
+button{font:inherit;cursor:pointer}
+.filters button{border:1px solid var(--line);border-radius:30px;background:transparent;color:var(--secondary);padding:5px 13px;font-size:13px;line-height:1.45}
+.filters button:hover{border-color:var(--accent)}
+.filters button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:white}
+.paper-list{list-style:none;padding:0}
+.paper-list li{border-top:1px solid var(--line);padding:22px 0;display:grid;grid-template-columns:minmax(107px,17%) 1fr;gap:20px}
+.paper-list li:last-child{padding-bottom:0}
+.venue{font-size:12px;line-height:1.55;color:var(--secondary);padding-top:3px}
+.venue span{display:block;color:var(--accent);font-weight:670;font-size:13px;max-width:150px}
+.paper-list h3 a{text-decoration:none}
+.paper-list h3 a:hover{text-decoration:underline}
+.paper-list p{margin-top:5px}
+.paper-list .authors{font-size:13px;line-height:1.5}
+.authors strong{font-weight:650;color:var(--ink)}
+.paper-links{margin-top:8px;font-size:13px;font-weight:650}
+.background-grid{display:grid;grid-template-columns:1fr 1fr;gap:8%}
+.subhead{font-size:15px;font-weight:650;letter-spacing:0;margin:6px 0 17px}
+.timeline>div+div{margin-top:16px}
+.timeline dt{font-size:12px;color:var(--accent);font-weight:600}
+.timeline em{font-weight:400}
+.timeline dd{font-size:14px;line-height:1.5;color:var(--secondary)}
+.timeline dd strong{display:block;color:var(--ink);font-size:15px;font-weight:600}
+footer{border-top:1px solid var(--line);display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 24px;padding:23px 0 36px;font-size:13px;color:var(--secondary)}
+footer>span{color:var(--ink);font:17px var(--serif)}
+.footer-han{font:12px "Songti SC",serif;margin-left:4px}
+footer a{text-decoration:none}
+footer a:hover{text-decoration:underline}
+.up{margin-left:auto}
+.sr,.skip:not(:focus){position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.skip:focus{position:fixed;z-index:5;left:15px;top:8px;background:white;padding:8px}
+@media(max-width:840px){.wrap{width:calc(100% - 64px)}.intro{gap:35px;padding:52px 0}.bio{font-size:15.5px}.research-grid{grid-template-columns:1fr 1.55fr;gap:24px}.research-notes>div+div{margin-top:12px}}
+@media(max-width:640px){.wrap{width:calc(100% - 40px)}.header-row{gap:0;min-height:70px}.brand{font-size:19px}.brand>span:last-child{display:none}.monogram{width:30px;height:32px;font-size:20px}.monogram span{font-size:13px}nav{gap:14px;font-size:12.5px}.intro{display:grid;grid-template-columns:minmax(0,1fr) 82px;gap:0 12px;padding:38px 0}.intro-copy{display:contents}.intro .eyebrow{grid-column:1;font-size:10px;gap:7px}.short-rule{width:15px}.intro h1{grid-column:1;font-size:clamp(34px,7.7vw,48px);margin:8px 0 1px}.han{grid-column:1;font-size:19px;margin-bottom:0}.portrait{grid-column:2;grid-row:1 / 4;align-self:center}.picture{padding:3px}.portrait figcaption{display:none}.bio,.profile-links{grid-column:1 / -1}.intro .bio:first-of-type{margin-top:0}.han+.bio{margin-top:19px}.profile-links{margin-top:17px}.ruled{padding:27px 0 32px}.section-head{align-items:baseline;margin-bottom:17px}.section-link{font-size:12px}.research-grid{display:flex;flex-direction:column;align-items:stretch;gap:16px}.tissue img{aspect-ratio:2.9}.research-notes>div+div{margin-top:14px}.paper-list li{display:block;padding:18px 0}.venue{display:flex;align-items:baseline;gap:8px;padding:0;margin:0 0 6px}.venue span{max-width:none}.paper-list h3,.research-notes h3{font-size:22px}.background-grid{grid-template-columns:1fr;gap:24px}.section-head h2{font-size:31px}.publications .section-head{flex-wrap:wrap;gap:6px 13px}.background-grid .subhead{margin-bottom:12px}footer{gap:3px 16px}.up{margin-left:0}}
+@media(max-width:360px){.wrap{width:calc(100% - 32px)}nav{gap:10px}.profile-links a+a::before{margin:0 8px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
