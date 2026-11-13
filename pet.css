@@ -1,85 +1,57 @@
 .site-pet {
-  --pet-size: 68px;
-  appearance: none;
   position: fixed;
-  left: max(9px, env(safe-area-inset-left));
-  bottom: max(8px, env(safe-area-inset-bottom));
   z-index: 4;
-  width: var(--pet-size);
-  height: var(--pet-size);
-  margin: 0;
+  right: max(8px, env(safe-area-inset-right));
+  bottom: max(4px, env(safe-area-inset-bottom));
+  width: 162px;
+  aspect-ratio: 108 / 46;
+  appearance: none;
   padding: 0;
+  margin: 0;
   border: 0;
-  border-radius: 8px;
+  border-radius: 3px;
   background: transparent;
-  color: inherit;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
+  pointer-events: none;
 }
 .site-pet canvas {
-  position: absolute;
-  inset: 0;
-  margin: auto;
+  display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
   image-rendering: pixelated;
-  pointer-events: none;
-  filter: drop-shadow(0 1px 0 #ddba9c);
 }
-.site-pet::before {
+/* Keep the transparent sky outside the interactive part of the field. */
+.site-pet::after {
   content: '';
   position: absolute;
-  left: 19%;
-  bottom: 8%;
-  width: 54%;
-  height: 7%;
-  border-radius: 50%;
-  background: #8b706e42;
-  pointer-events: none;
+  inset: 34% 0 0;
+  cursor: pointer;
+  pointer-events: auto;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 .site-pet:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 1px;
 }
-.site-pet::after {
+.site-pet[data-playing="heart"]::before {
   content: '';
   position: absolute;
-  right: 12%;
-  top: 2%;
-  width: 11px;
+  left: 47%;
+  top: 20%;
+  width: 10px;
   height: 9px;
   background: #c65b78;
-  clip-path: polygon(0 15%, 18% 15%, 18% 0, 40% 0, 40% 15%, 60% 15%, 60% 0, 82% 0, 82% 15%, 100% 15%, 100% 48%, 50% 100%, 0 48%);
-  opacity: 0;
-  pointer-events: none;
+  clip-path: polygon(0 15%, 18% 15%, 18% 0, 40% 0, 50% 20%, 65% 0, 85% 0, 85% 15%, 100% 15%, 100% 50%, 50% 100%, 0 50%);
 }
-.site-pet-happy::after { opacity: 1; }
-@media (prefers-reduced-motion: no-preference) {
-  .site-pet-happy::after { animation: pet-heart .75s ease-out both; }
-  .site-pet[data-action="hop"] canvas { animation: pet-hop .6s ease-in-out; }
-  @keyframes pet-heart {
-    from { opacity: 0; transform: translateY(4px); }
-    25%, 70% { opacity: 1; }
-    to { opacity: 0; transform: translateY(-5px); }
-  }
-  @keyframes pet-hop {
-    0%, 100% { transform: none; }
-    14% { transform: translateY(2px); }
-    42% { transform: translate(2px,-8px) rotate(-4deg); }
-    70% { transform: translateY(1px); }
-  }
-}
-@media (max-width: 1200px) {
-  footer:has(.site-pet) { padding-left: 56px; }
+@media (max-width: 1360px) {
+  footer:has(.site-pet) { padding-bottom: calc(68px + env(safe-area-inset-bottom, 0px)); }
 }
 @media (max-width: 640px) {
   .site-pet {
-    --pet-size: 51px;
-    left: max(3px, env(safe-area-inset-left));
-    bottom: max(4px, env(safe-area-inset-bottom));
+    width: 124px;
+    right: max(4px, env(safe-area-inset-right));
+    bottom: max(2px, env(safe-area-inset-bottom));
   }
-  footer:has(.site-pet) { padding-left: 40px; padding-right: 0; }
+  footer:has(.site-pet) { padding-right: 0; padding-bottom: calc(53px + env(safe-area-inset-bottom, 0px)); }
 }
-@media print {
-  .site-pet { display: none; }
-}
+@media print { .site-pet { display: none; } }
