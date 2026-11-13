@@ -82,38 +82,73 @@
     ctx.restore();
   }
 
-  const day = { meadow:'#9aa882', grass:'#759466', tip:'#c2c8a0', soil:'#ac886a',
-    furrow:'#8c6c58', ridge:'#c9a889', stalk:'#72895f', gold:'#d9b55e', petal:'#e2aaa2' };
-  const night = { meadow:'#78876d', grass:'#63805e', tip:'#a7b494', soil:'#8f7462',
-    furrow:'#68554f', ridge:'#b3977d', stalk:'#91a385', gold:'#d0b366', petal:'#d19da3' };
+  const day = {
+    distant: '#dae1c8', hillside: '#c6d2ac', meadow: '#a7bc8d', shade: '#87a576',
+    grass: '#75936a', tip: '#d3d9aa', stem: '#849665', fence: '#b9aa8c',
+    gold: '#e1ba69', petal: '#daa5a6', ivory: '#f4e8c6', soil: '#ab8d70', ridge: '#c5aa87',
+  };
+  const night = {
+    distant: '#344544', hillside: '#435750', meadow: '#566f60', shade: '#496357',
+    grass: '#6c8469', tip: '#9aa782', stem: '#84947a', fence: '#7c7868',
+    gold: '#b29c64', petal: '#b48e96', ivory: '#c9c4a7', soil: '#665650', ridge: '#897462',
+  };
+
   function drawBank(ctx, width, height, dark = false) {
     const p = dark ? night : day;
-    const top = height - 13;
-    const rect = (color,x,y,w,h) => { ctx.fillStyle=color; ctx.fillRect(x,y,w,h); };
-    // The two ends of the verge taper into the surrounding transparent page.
-    rect(p.meadow,5,top,width-12,1);
-    rect(p.meadow,2,top+1,width-5,3);
-    rect(p.grass,0,top+4,width-1,2);
-    rect(p.soil,4,top+6,width-8,3);
-    rect(p.soil,9,top+9,width-17,1);
-    rect(p.soil,16,top+10,width-31,1);
-    rect(p.furrow,22,top+11,width-46,1);
-    for (let x=10; x<width-7; x+=13) {
-      rect(p.tip,x,top+2,4,1);
-      rect(p.grass,x+3,top,1,2);
-      rect(p.ridge,x+1,top+6,4,1);
-      rect(p.furrow,x-2,top+7,3,1);
-      rect(p.furrow,x-4,top+8,2,1);
+    const rect = (color, x, y, w, h) => {
+      ctx.fillStyle = color;
+      ctx.fillRect(x, y, w, h);
+    };
+    // Landscape details stay planted in the same places after a resize or theme change.
+    let seed = 981;
+    function vary(min, max) {
+      seed = (Math.imul(seed, 1664525) + 1013904223) >>> 0;
+      return min + Math.floor(seed / 4294967296 * (max - min + 1));
     }
-    for (const [x,high,flower] of [[9,5,p.gold],[13,3,null],[width-18,6,p.petal],[width-13,4,p.gold]]) {
-      rect(p.stalk,x,top-high,1,high+1);
-      rect(p.grass,x-1,top-2,1,2);
-      rect(p.tip,x+1,top-3,1,1);
-      if (flower) {
-        rect(flower,x-1,top-high,3,1);
-        rect(flower,x,top-high-1,1,3);
-        rect(p.ridge,x,top-high,1,1);
+    const top = height - 9;
+    const rise = x => Math.round(1.4 * Math.sin(x / 37) + .8 * Math.sin(x / 13));
+    for (let x = 0; x < width; x += 4) {
+      const distantY = top - 6 + Math.round(2.4 * Math.sin(x / 75 + .1) + 1.6 * Math.sin(x / 34));
+      const hillsideY = top - 3 + Math.round(1.5 * Math.sin(x / 57 + 1.7));
+      rect(p.distant, x, distantY, 4, height - distantY);
+      rect(p.hillside, x, hillsideY, 4, height - hillsideY);
+      const edge = top + rise(x);
+      rect(p.meadow, x, edge, 4, height - edge);
+    }
+
+    // Low wooden field gates alternate with open stretches of pasture.
+    for (let x = 39; x < width; x += vary(124, 208)) {
+      const y = top - 3 + rise(x);
+      const posts = vary(3, 5);
+      rect(p.fence, x, y - 3, (posts - 1) * 6, 1);
+      rect(p.fence, x, y - 1, (posts - 1) * 6, 1);
+      for (let i = 0; i < posts; i++) rect(p.fence, x + 6 * i, y - 4, 1, 6);
+    }
+
+    // Small clumps of field flowers and seed heads leave gaps for the animals.
+    for (let x = 6; x < width; x += vary(18, 43)) {
+      const blooms = vary(1, 3);
+      const flower = [p.ivory, p.gold, p.petal][vary(0, 2)];
+      for (let n = 0; n < blooms; n++) {
+        const stemX = x + n * 3 + vary(0, 2);
+        const y = top + rise(stemX) + 2;
+        const stem = vary(3, 6);
+        rect(p.stem, stemX, y - stem, 1, stem);
+        rect(p.grass, stemX - 1, y - 2, 1, 2);
+        if (stem >= 4) {
+          rect(flower, stemX - 1, y - stem, 3, 1);
+          rect(flower, stemX, y - stem - 1, 1, 2);
+        }
       }
+    }
+
+    rect(p.shade, 0, height - 4, width, 2);
+    rect(p.soil, 0, height - 2, width, 2);
+    for (let x = 0; x < width; x += vary(8, 19)) {
+      const y = top + vary(2, 4);
+      rect(p.grass, x, y, 2, 1);
+      rect(p.tip, x + 2, y - 1, vary(1, 3), 1);
+      rect(p.ridge, x + 3, height - 2, vary(2, 5), 1);
     }
   }
 

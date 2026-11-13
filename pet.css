@@ -1,57 +1,56 @@
+:root {
+  --meadow-height: 63px;
+  --meadow-inset: env(safe-area-inset-bottom, 0px);
+}
+
 .site-pet {
   position: fixed;
   z-index: 4;
-  right: max(8px, env(safe-area-inset-right));
-  bottom: max(4px, env(safe-area-inset-bottom));
-  width: 162px;
-  aspect-ratio: 108 / 46;
+  inset: auto 0 0;
+  width: 100%;
+  height: calc(var(--meadow-height) + var(--meadow-inset));
   appearance: none;
   padding: 0;
   margin: 0;
   border: 0;
-  border-radius: 3px;
-  background: transparent;
+  background: linear-gradient(to bottom, transparent, var(--page) 36%);
+  /* Let links, text selection and touch scrolling reach the page below. */
   pointer-events: none;
 }
+
 .site-pet canvas {
   display: block;
+  position: absolute;
+  inset: 0 0 auto;
   width: 100%;
-  height: 100%;
+  height: var(--meadow-height);
   image-rendering: pixelated;
 }
-/* Keep the transparent sky outside the interactive part of the field. */
+
 .site-pet::after {
   content: '';
   position: absolute;
-  inset: 34% 0 0;
-  cursor: pointer;
-  pointer-events: auto;
-  touch-action: manipulation;
-  -webkit-tap-highlight-color: transparent;
+  inset: var(--meadow-height) 0 0;
+  background: #ab8d70;
 }
+
+[data-theme="dark"] .site-pet::after { background: #665650; }
+
 .site-pet:focus-visible {
   outline: 2px solid var(--accent);
-  outline-offset: 1px;
+  outline-offset: -2px;
 }
-.site-pet[data-playing="heart"]::before {
-  content: '';
-  position: absolute;
-  left: 47%;
-  top: 20%;
-  width: 10px;
-  height: 9px;
-  background: #c65b78;
-  clip-path: polygon(0 15%, 18% 15%, 18% 0, 40% 0, 50% 20%, 65% 0, 85% 0, 85% 15%, 100% 15%, 100% 50%, 50% 100%, 0 50%);
+
+footer:has(.site-pet) {
+  padding-bottom: calc(var(--meadow-height) + var(--meadow-inset) + 12px);
 }
-@media (max-width: 1360px) {
-  footer:has(.site-pet) { padding-bottom: calc(68px + env(safe-area-inset-bottom, 0px)); }
-}
+
 @media (max-width: 640px) {
-  .site-pet {
-    width: 124px;
-    right: max(4px, env(safe-area-inset-right));
-    bottom: max(2px, env(safe-area-inset-bottom));
-  }
-  footer:has(.site-pet) { padding-right: 0; padding-bottom: calc(53px + env(safe-area-inset-bottom, 0px)); }
+  :root { --meadow-height: 50px; }
+  footer:has(.site-pet) { padding-right: 0; }
 }
-@media print { .site-pet { display: none; } }
+
+@media print {
+  .site-pet { display: none; }
+  footer:has(.site-pet) { padding-bottom: 0; }
+}
