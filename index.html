@@ -12,7 +12,11 @@
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://wenchuan-zhang.github.io/assets/wenchuan-zhang.jpg">
   <link rel="icon" href="assets/favicon.png" type="image/png">
+  <script src="theme.js"></script>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="venues.css">
+  <link rel="stylesheet" href="pet.css">
+  <script defer src="pet.js"></script>
   <script defer src="site.js"></script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Wenchuan Zhang","alternateName":"张文川","jobTitle":"PhD Candidate in Pathology and Pathophysiology","affiliation":{"@type":"Organization","name":"West China Hospital, Sichuan University"},"url":"https://wenchuan-zhang.github.io/","image":"https://wenchuan-zhang.github.io/assets/wenchuan-zhang.jpg","sameAs":["https://scholar.google.com/citations?user=h4loa8kAAAAJ","https://github.com/Wenchuan-Zhang","https://orcid.org/0000-0003-2278-2667"]}</script>
 </head>
@@ -21,17 +25,18 @@
   <header class="sitehead">
     <div class="wrap header-row">
       <a class="brand" href="#top" aria-label="Wenchuan Zhang, back to top"><span class="monogram" aria-hidden="true">W<span>Z</span></span><span>Wenchuan Zhang</span></a>
-      <nav aria-label="Main navigation"><a href="#research">Research</a><a href="#publications">Publications</a><a href="#background">Background</a></nav>
+      <nav aria-label="Main navigation"><a href="#research">Research</a><a href="#publications">Publications</a><a href="#background">Background</a>
+        <button class="theme-toggle" type="button" aria-label="Dark mode" aria-pressed="false" title="Switch to dark mode" hidden><span class="sun" aria-hidden="true">☀</span><span class="moon" aria-hidden="true">☾</span></button>
+      </nav>
     </div>
   </header>
   <main id="main" class="wrap">
     <section class="intro" aria-labelledby="name">
       <div class="intro-copy">
         <p class="eyebrow"><span class="short-rule" aria-hidden="true"></span> Computational pathology</p>
-        <h1 id="name">Wenchuan Zhang</h1>
-        <p class="han" lang="zh-Hans">张文川</p>
-        <p class="bio">I’m a PhD candidate in Pathology and Pathophysiology at <strong>West China Hospital, Sichuan University</strong>, advised by <strong>Prof. Hong Bu</strong>. I’m a licensed physician in China and trained in clinical pathology at Shengjing Hospital.</p>
-        <p class="bio">I study how AI models read tissue slides. My work focuses on how vision-language models use visual evidence and what a pretreatment breast biopsy can tell us about a patient’s response to therapy.</p>
+        <div class="name-line"><h1 id="name">Wenchuan Zhang</h1><span class="han" lang="zh-Hans">张文川</span></div>
+        <p class="bio">I’m a PhD candidate at <strong>West China Hospital, Sichuan University</strong>, advised by <strong>Prof. Hong Bu</strong>. I trained in clinical pathology at Shengjing Hospital and am a licensed physician in China.</p>
+        <p class="bio">I study how AI models read tissue slides and what a breast biopsy can tell us about a patient’s response to treatment.</p>
         <div class="profile-links"><a href="https://scholar.google.com/citations?user=h4loa8kAAAAJ">Google Scholar</a><a href="https://github.com/Wenchuan-Zhang">GitHub</a><a href="https://orcid.org/0000-0003-2278-2667">ORCID</a><a href="mailto:up50184632@gmail.com">Email</a></div>
       </div>
       <figure class="portrait"><div class="picture"><img src="assets/wenchuan-zhang.jpg" width="598" height="769" fetchpriority="high" alt="Wenchuan Zhang"></div><figcaption>Chengdu, China</figcaption></figure>
@@ -39,131 +44,129 @@
     <section id="research" class="ruled research" aria-labelledby="research-heading">
       <div class="section-head"><h2 id="research-heading">Research</h2></div>
       <div class="research-grid">
-        <figure class="tissue"><img src="assets/breast-histology.jpg" width="1000" height="748" loading="lazy" alt="Hematoxylin and eosin stained section of invasive ductal breast carcinoma"><figcaption><a href="https://commons.wikimedia.org/wiki/File:Histopathology_of_invasive_ductal_carcinoma,_intermediate_magnification.jpg" title="Illustrative micrograph by Mikael Häggström, MD (CC0)">Breast carcinoma · H&amp;E <span aria-hidden="true">↗</span></a></figcaption></figure>
-        <div class="research-notes">
-          <div><h3>Reasoning with pathology images</h3><p>My collaborators and I train vision-language models to answer pathology questions, retrieve illustrated textbook pages, and test whether their answers depend on the tissue features in the image.</p></div>
-          <div><h3>Predicting breast cancer treatment response</h3><p>I combine whole-slide biopsy images with clinical, imaging, and molecular data to study which patients achieve a pathological complete response after neoadjuvant therapy.</p></div>
-        </div>
+        <div class="research-note"><h3>Reasoning with pathology images</h3><p>We train vision-language models to retrieve evidence from pathology textbooks and test whether their answers depend on what they can see in the slide.</p></div>
+        <div class="research-note breast-note"><div><h3>Breast cancer treatment response</h3><p>I combine biopsy slides, imaging, and molecular and clinical data to predict pathological complete response after neoadjuvant therapy.</p></div>
+          <figure class="tissue"><img src="assets/breast-histology.jpg" width="1000" height="748" loading="lazy" alt="Hematoxylin and eosin stained section of invasive ductal breast carcinoma"><figcaption><a href="https://commons.wikimedia.org/wiki/File:Histopathology_of_invasive_ductal_carcinoma,_intermediate_magnification.jpg" title="Illustrative micrograph by Mikael Häggström, MD (CC0)">Breast carcinoma · H&amp;E <span aria-hidden="true">↗</span></a></figcaption></figure></div>
       </div>
     </section>
     <section class="ruled publications" id="publications" aria-labelledby="pub-heading">
       <div class="section-head"><h2 id="pub-heading">Publications</h2><a class="section-link" href="https://scholar.google.com/citations?user=h4loa8kAAAAJ">Google Scholar <span aria-hidden="true">↗</span></a></div>
-      <p class="publication-summary">14 journal articles · 2 conference papers · 7 preprints</p>
+      <p class="publication-summary"><span class="pub-count" data-kind="journal">14 journal articles</span> <span class="pub-count" data-kind="conference">2 conference papers</span> <span class="pub-count" data-kind="preprint">7 preprints</span></p>
       <div class="filters" role="group" aria-label="Filter publications by topic" hidden><button type="button" data-filter="all" aria-pressed="true">All publications</button><button type="button" data-filter="reasoning" aria-pressed="false">Vision-language models</button><button type="button" data-filter="breast" aria-pressed="false">Breast cancer</button><button type="button" data-filter="methods" aria-pressed="false">Multiple instance learning</button><button type="button" data-filter="other" aria-pressed="false">Other research</button></div>
       <p class="sr" id="results-count" aria-live="polite"></p>
       <ol class="paper-list">
         <li data-topic="reasoning" data-scholar-id="qjMakFHDy7sC">
-          <div class="venue"><span>AAAI</span>2026</div>
+          <div class="venue"><span data-venue="aaai">AAAI</span>2026</div>
           <div><h3><a href="https://doi.org/10.1609/aaai.v40i33.40071">Patho-R1: A Multimodal Reinforcement Learning-Based Pathology Expert Reasoner</a></h3><p class="authors"><strong>Wenchuan Zhang</strong>, Penghao Zhang, Jingru Guo, Tao Cheng, Jie Chen, Shuwan Zhang, Zhang Zhang, Yuhao Yi, Hong Bu</p><p>Training a model to reason about pathology images using paired figures and text, expert reasoning examples, and reinforcement learning.</p>
           <div class="paper-links"><a href="https://doi.org/10.1609/aaai.v40i33.40071">Paper</a><a href="https://github.com/Wenchuan-Zhang/Patho-R1">Code</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;user=h4loa8kAAAAJ&amp;citation_for_view=h4loa8kAAAAJ:qjMakFHDy7sC">Scholar</a></div></div>
         </li>
         <li data-topic="reasoning" data-scholar-id="d1gkVwhDpl0C">
-          <div class="venue"><span>AAAI</span>2026</div>
+          <div class="venue"><span data-venue="aaai">AAAI</span>2026</div>
           <div><h3><a href="https://doi.org/10.1609/aaai.v40i35.40239">Patho-AgenticRAG: Towards Multimodal Agentic Retrieval-Augmented Generation for Pathology VLMs via Reinforcement Learning</a></h3><p class="authors"><strong>Wenchuan Zhang</strong>, Jingru Guo, Hengzhe Zhang, Penghao Zhang, Jie Chen, Shuwan Zhang, Zhang Zhang, Yuhao Yi, Hong Bu</p><p>A model searches illustrated pathology textbooks over multiple steps to find visual and textual evidence for its answers.</p>
           <div class="paper-links"><a href="https://doi.org/10.1609/aaai.v40i35.40239">Paper</a><a href="https://github.com/Wenchuan-Zhang/Patho-AgenticRAG">Code</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;user=h4loa8kAAAAJ&amp;citation_for_view=h4loa8kAAAAJ:d1gkVwhDpl0C">Scholar</a></div></div>
         </li>
         <li data-topic="reasoning" data-scholar-id="LkGwnXOMwfcC">
-          <div class="venue"><span>arXiv preprint</span>2026</div>
+          <div class="venue"><span data-venue="arxiv">arXiv preprint</span>2026</div>
           <div><h3><a href="https://arxiv.org/abs/2607.21065">Do Pathology Vision-Language Models Truly See Pathology?</a></h3><p class="authors">Chengyang Zhang, <strong>Wenchuan Zhang</strong>, Bo Li, Xinyu Liu, Jiaming Yang, Mengran Li, Chenxun Deng, Jie Chen, Yang Zhang, Wei Ju, Yuhao Yi, Hong Bu, Jiancheng Lv</p><p>PathBind tests whether models can connect the answer to the relevant tissue region, including when the question alone offers clues.</p>
           <div class="paper-links"><a href="https://arxiv.org/abs/2607.21065">Preprint</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;user=h4loa8kAAAAJ&amp;citation_for_view=h4loa8kAAAAJ:LkGwnXOMwfcC">Scholar</a></div></div>
         </li>
         <li data-topic="breast" data-scholar-id="ufrVoPGSRksC">
-          <div class="venue"><span>npj Digital Medicine</span>2026</div>
+          <div class="venue"><span data-venue="digital-medicine">npj Digital Medicine</span>2026</div>
           <div><h3><a href="https://doi.org/10.1038/s41746-026-02849-2">Deep learning prediction of pathological complete response in breast cancer using Mamba architecture</a></h3><p class="authors"><strong>Wenchuan Zhang</strong>, Shuwan Zhang, Fengling Li, Yuanyuan Zhao, Jing Fu, Xiuli Xiao, Ting Yin, Qingjie Lv, Yuhao Yi, Hong Bu</p><p>We evaluated a whole-slide model for predicting response from pretreatment biopsies in 1,646 patients across five hospitals.</p>
           <div class="paper-links"><a href="https://doi.org/10.1038/s41746-026-02849-2">Paper</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;user=h4loa8kAAAAJ&amp;citation_for_view=h4loa8kAAAAJ:ufrVoPGSRksC">Scholar</a></div></div>
         </li>
         <li data-topic="breast" data-scholar-id="WF5omc3nYNoC">
-          <div class="venue"><span>The Journal of Pathology</span>2026</div>
+          <div class="venue"><span data-venue="journal-pathology">The Journal of Pathology</span>2026</div>
           <div><h3><a href="https://doi.org/10.1002/path.70022">Integration of histopathological characteristics by machine learning improves the prediction of neoadjuvant immunochemotherapy response in triple-negative breast cancer</a></h3><p class="authors">Xunxi Lu, Bin Luo, Yani Wei, <strong>Wenchuan Zhang</strong>, Xiaoyan Wu, Jie Chen, Huijuan Shi, Jingping Yuan, Hong Bu, Yuhao Yi, Zongchao Gou</p>
           <div class="paper-links"><a href="https://doi.org/10.1002/path.70022">Paper</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;user=h4loa8kAAAAJ&amp;citation_for_view=h4loa8kAAAAJ:WF5omc3nYNoC">Scholar</a></div></div>
         </li>
         <li data-topic="reasoning" data-scholar-id="0EnyYjriUFMC">
-          <div class="venue"><span>arXiv preprint</span>2026</div>
+          <div class="venue"><span data-venue="arxiv">arXiv preprint</span>2026</div>
           <div><h3><a href="https://arxiv.org/abs/2610.40752">PathoJev: Efficient Pathology Decisions from Shared Visual Context</a></h3><p class="authors">Chengyang Zhang, <strong>Wenchuan Zhang</strong>, Bo Li, Xinyu Liu, Jiaming Yang, Mengran Li, Jie Chen, Wei Ju, Yuhao Yi, Hong Bu, Jiancheng Lv</p>
           <div class="paper-links"><a href="https://arxiv.org/abs/2610.40752">Preprint</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;user=h4loa8kAAAAJ&amp;citation_for_view=h4loa8kAAAAJ:0EnyYjriUFMC">Scholar</a></div></div>
         </li>
         <li data-topic="methods" data-scholar-id="hqOjcs7Dif8C">
-          <div class="venue"><span>arXiv preprint</span>2026</div>
+          <div class="venue"><span data-venue="arxiv">arXiv preprint</span>2026</div>
           <div><h3><a href="https://arxiv.org/abs/2610.15669">ProtoPur: Prototype-Purity Pseudo-Labeling for Weakly Supervised Instance Learning in Pathology</a></h3><p class="authors">Chen Shu, Chengyang Zhang, Boyu Fu, Ting Yin, <strong>Wenchuan Zhang</strong>, Jie Chen, Yuhao Yi, Hong Bu</p>
           <div class="paper-links"><a href="https://arxiv.org/abs/2610.15669">Preprint</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;user=h4loa8kAAAAJ&amp;citation_for_view=h4loa8kAAAAJ:hqOjcs7Dif8C">Scholar</a></div></div>
         </li>
         <li data-topic="breast" data-scholar-id="UebtZRa9Y70C">
-          <div class="venue"><span>Laboratory Investigation</span>2026</div>
+          <div class="venue"><span data-venue="lab-investigation">Laboratory Investigation</span>2026</div>
           <div><h3><a href="https://doi.org/10.1016/j.labinv.2026.106169">Knowledge-Guided Multimodal Learning for Interpretable Prediction of Pathological Complete Response and Survival in Breast Cancer</a></h3><p class="authors"><strong>Wenchuan Zhang</strong>, Shuwan Zhang, Yani Wei, Yuanyuan Zhao, Wei Yuan, Xiaoyan Wu, Xunxi Lu, Ting Yin, Libo Yang, Yuhao Yi, Huijuan Shi, Qingjie Lv, Fengling Li, Hong Bu</p>
           <div class="paper-links"><a href="https://doi.org/10.1016/j.labinv.2026.106169">Paper</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;user=h4loa8kAAAAJ&amp;citation_for_view=h4loa8kAAAAJ:UebtZRa9Y70C">Scholar</a></div></div>
         </li>
         <li data-topic="reasoning" data-scholar-id="Se3iqnhoufwC">
-          <div class="venue"><span>arXiv preprint</span>2026</div>
+          <div class="venue"><span data-venue="arxiv">arXiv preprint</span>2026</div>
           <div><h3><a href="https://arxiv.org/abs/2609.34277">See, Measure, and Reason: Learning Visually Grounded Reasoning in Pathology</a></h3><p class="authors">Chengyang Zhang, <strong>Wenchuan Zhang</strong>, Bo Li, Mengran Li, Xinyu Liu, Jiaming Yang, Jie Chen, Zhang Zhang, Yuhao Yi, Hong Bu, Jiancheng Lv</p>
           <div class="paper-links"><a href="https://arxiv.org/abs/2609.34277">Preprint</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;user=h4loa8kAAAAJ&amp;citation_for_view=h4loa8kAAAAJ:Se3iqnhoufwC">Scholar</a></div></div>
         </li>
         <li data-topic="reasoning breast" data-scholar-id="roLk4NBRz8UC">
-          <div class="venue"><span>arXiv preprint</span>2026</div>
+          <div class="venue"><span data-venue="arxiv">arXiv preprint</span>2026</div>
           <div><h3><a href="https://arxiv.org/abs/2608.03079">CorePath: A Breast-Specialized Pathology Foundation Model for Core Needle Biopsy Diagnosis and Risk-Controlled Report Generation</a></h3><p class="authors">Ting Yin, Danning Li, Chen Shu, Xiaoxia Yao, Boyu Fu, Yujing Chang, Tianyu Shi, Mengna Feng, Jie Chen, Jing Fu, Xiuli Xiao, Tianlin Li, Mumin Shao, Jiaxin Bi, <strong>Wenchuan Zhang</strong>, Xiaoyan Wu, Xiao Han, Zhang Zhang, Yuhao Yi, Hong Bu</p>
           <div class="paper-links"><a href="https://arxiv.org/abs/2608.03079">Preprint</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;user=h4loa8kAAAAJ&amp;citation_for_view=h4loa8kAAAAJ:roLk4NBRz8UC">Scholar</a></div></div>
         </li>
         <li data-topic="reasoning" data-scholar-id="_FxGoFyzp5QC">
-          <div class="venue"><span>arXiv preprint</span>2026</div>
+          <div class="venue"><span data-venue="arxiv">arXiv preprint</span>2026</div>
           <div><h3><a href="https://arxiv.org/abs/2606.07549">PathoSage: Towards Multi-Source Evidence Adjudication in Pathology via Experience-Aware Agentic Workflow</a></h3><p class="authors">Chengyang Zhang, <strong>Wenchuan Zhang</strong>, Bo Li, Mengran Li, Bob Zhang, Yuhao Yi, Hong Bu, Jiancheng Lv</p>
           <div class="paper-links"><a href="https://arxiv.org/abs/2606.07549">Preprint</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;user=h4loa8kAAAAJ&amp;citation_for_view=h4loa8kAAAAJ:_FxGoFyzp5QC">Scholar</a></div></div>
         </li>
         <li data-topic="breast" data-scholar-id="eQOLeE2rZwMC">
-          <div class="venue"><span>Breast Cancer Research</span>2025 online · 2026 issue</div>
+          <div class="venue"><span data-venue="breast-cancer-research">Breast Cancer Research</span>2025 online · 2026 issue</div>
           <div><h3><a href="https://doi.org/10.1186/s13058-025-02181-9">Attention-based multimodal fusion transformer for predicting the efficacy of neoadjuvant therapy in breast cancer: a cross-institutional retrospective study</a></h3><p class="authors"><strong>Wenchuan Zhang</strong>, Shuwan Zhang, Jiadi You, Fengling Li, Xiaoyan Wu, Xunxi Lu, Qingjie Lv, Juan Huang, Yuhao Yi, Hong Bu</p><p>MuFi combines biopsy slides with breast MRI to predict treatment response across two institutions.</p>
           <div class="paper-links"><a href="https://doi.org/10.1186/s13058-025-02181-9">Paper</a><a href="https://github.com/Wenchuan-Zhang/MuFi">Code</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;user=h4loa8kAAAAJ&amp;citation_for_view=h4loa8kAAAAJ:eQOLeE2rZwMC">Scholar</a></div></div>
         </li>
         <li data-topic="breast" data-scholar-id="zYLM7Y9cAGgC">
-          <div class="venue"><span>Breast Cancer Research</span>2025</div>
+          <div class="venue"><span data-venue="breast-cancer-research">Breast Cancer Research</span>2025</div>
           <div><h3><a href="https://doi.org/10.1186/s13058-025-01968-0">Multimodal recurrence risk prediction model for HR+/HER2- early breast cancer following adjuvant chemo-endocrine therapy: integrating pathology image and clinicalpathological features</a></h3><p class="authors">Xiaoyan Wu, Yiman Li, Jilong Chen, Jie Chen, <strong>Wenchuan Zhang</strong>, Xunxi Lu, Xiaorong Zhong, Min Zhu, Yuhao Yi, Hong Bu</p>
           <div class="paper-links"><a href="https://doi.org/10.1186/s13058-025-01968-0">Paper</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;user=h4loa8kAAAAJ&amp;citation_for_view=h4loa8kAAAAJ:zYLM7Y9cAGgC">Scholar</a></div></div>
         </li>
         <li data-topic="breast" data-scholar-id="Y0pCki6q_DkC">
-          <div class="venue"><span>npj Precision Oncology</span>2025</div>
+          <div class="venue"><span data-venue="precision-oncology">npj Precision Oncology</span>2025</div>
           <div><h3><a href="https://doi.org/10.1038/s41698-025-01033-1">AI-powered prediction model for neoadjuvant chemotherapy efficacy: comprehensive analysis of breast cancer histological images</a></h3><p class="authors">Fengling Li, Yani Wei, <strong>Wenchuan Zhang</strong>, Yuanyuan Zhao, Jing Fu, Xiuli Xiao, Yan Qiu, Yuhao Yi, Yongquan Yang, Hong Bu</p>
           <div class="paper-links"><a href="https://doi.org/10.1038/s41698-025-01033-1">Paper</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;user=h4loa8kAAAAJ&amp;citation_for_view=h4loa8kAAAAJ:Y0pCki6q_DkC">Scholar</a></div></div>
         </li>
         <li data-topic="breast" data-scholar-id="Tyk-4Ss8FVUC">
-          <div class="venue"><span>The Breast</span>2025</div>
+          <div class="venue"><span data-venue="breast">The Breast</span>2025</div>
           <div><h3><a href="https://doi.org/10.1016/j.breast.2025.104484">Development and validation of a 10-gene signature for predicting recurrence risk in HR+/HER2- early breast cancer undergoing chemo-endocrine therapy</a></h3><p class="authors">Xiaoyan Wu, Xunxi Lu, <strong>Wenchuan Zhang</strong>, Xiaorong Zhong, Hong Bu, Zhang Zhang</p>
           <div class="paper-links"><a href="https://doi.org/10.1016/j.breast.2025.104484">Paper</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;user=h4loa8kAAAAJ&amp;citation_for_view=h4loa8kAAAAJ:Tyk-4Ss8FVUC">Scholar</a></div></div>
         </li>
         <li data-topic="methods" data-scholar-id="YsMSGLbcyi4C">
-          <div class="venue"><span>arXiv preprint</span>2025</div>
+          <div class="venue"><span data-venue="arxiv">arXiv preprint</span>2025</div>
           <div><h3><a href="https://arxiv.org/abs/2505.12074">Denoising Mutual Knowledge Distillation in Bi-Directional Multiple Instance Learning</a></h3><p class="authors">Chen Shu, Boyu Fu, Yiman Li, Ting Yin, <strong>Wenchuan Zhang</strong>, Jie Chen, Yuhao Yi, Hong Bu</p>
           <div class="paper-links"><a href="https://arxiv.org/abs/2505.12074">Preprint</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;user=h4loa8kAAAAJ&amp;citation_for_view=h4loa8kAAAAJ:YsMSGLbcyi4C">Scholar</a></div></div>
         </li>
         <li data-topic="breast" data-scholar-id="IjCSPb-OGe4C">
-          <div class="venue"><span>Scientific Reports</span>2024</div>
+          <div class="venue"><span data-venue="scientific-reports">Scientific Reports</span>2024</div>
           <div><h3><a href="https://doi.org/10.1038/s41598-024-74608-w">Prognostic significance of ER-to-PR difference in ER+/HER2- early breast cancer</a></h3><p class="authors">Xiaoyan Wu, <strong>Wenchuan Zhang</strong>, Xunxi Lu, Xiaorong Zhong, Hong Bu</p>
           <div class="paper-links"><a href="https://doi.org/10.1038/s41598-024-74608-w">Paper</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;user=h4loa8kAAAAJ&amp;citation_for_view=h4loa8kAAAAJ:IjCSPb-OGe4C">Scholar</a></div></div>
         </li>
         <li data-topic="breast" data-scholar-id="2osOgNQ5qMEC">
-          <div class="venue"><span>Frontiers in Microbiology</span>2023</div>
+          <div class="venue"><span data-venue="frontiers-microbiology">Frontiers in Microbiology</span>2023</div>
           <div><h3><a href="https://doi.org/10.3389/fmicb.2023.1193725">Mendelian randomization analysis revealed a gut microbiota-mammary axis in breast cancer</a></h3><p class="authors">Shuwan Zhang, <strong>Wenchuan Zhang</strong>, Haiyue Ren, Rui Xue, Zitong Wang, Zhe Wang, Qingjie Lv</p>
           <div class="paper-links"><a href="https://doi.org/10.3389/fmicb.2023.1193725">Paper</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;user=h4loa8kAAAAJ&amp;citation_for_view=h4loa8kAAAAJ:2osOgNQ5qMEC">Scholar</a></div></div>
         </li>
         <li data-topic="other" data-scholar-id="9yKSN-GCB0IC">
-          <div class="venue"><span>Heliyon</span>2023</div>
+          <div class="venue"><span data-venue="heliyon">Heliyon</span>2023</div>
           <div><h3><a href="https://doi.org/10.1016/j.heliyon.2023.e20474">Therapeutic potential of single-nucleotide polymorphism-mediated interleukin-6 receptor blockade in cancer treatment: A Mendelian randomization study</a></h3><p class="authors">Shuwan Zhang, <strong>Wenchuan Zhang</strong>, Hanxue Sun, Rui Xue, Qingjie Lv</p>
           <div class="paper-links"><a href="https://doi.org/10.1016/j.heliyon.2023.e20474">Paper</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;user=h4loa8kAAAAJ&amp;citation_for_view=h4loa8kAAAAJ:9yKSN-GCB0IC">Scholar</a></div></div>
         </li>
         <li data-topic="other" data-scholar-id="W7OEmFMy1HYC">
-          <div class="venue"><span>BMJ Open Diabetes Research &amp; Care</span>2023</div>
+          <div class="venue"><span data-venue="bmj-diabetes">BMJ Open Diabetes Research &amp; Care</span>2023</div>
           <div><h3><a href="https://doi.org/10.1136/bmjdrc-2022-003196">Presence of PD-1 similarity genes in monocytes may promote the development of type 1 diabetes mellitus and poor prognosis of pancreatic cancer</a></h3><p class="authors">Yuquan Huang, <strong>Wenchuan Zhang</strong>, Can Xu, Qingxia Li, Wu Zhang, Wanfeng Xu, Mingming Zhang</p>
           <div class="paper-links"><a href="https://doi.org/10.1136/bmjdrc-2022-003196">Paper</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;user=h4loa8kAAAAJ&amp;citation_for_view=h4loa8kAAAAJ:W7OEmFMy1HYC">Scholar</a></div></div>
         </li>
         <li data-topic="breast" data-scholar-id="u5HHmVD_uO8C">
-          <div class="venue"><span>Frontiers in Oncology</span>2022</div>
+          <div class="venue"><span data-venue="frontiers-oncology">Frontiers in Oncology</span>2022</div>
           <div><h3><a href="https://doi.org/10.3389/fonc.2022.929363">Prognostic value of 12 m7G methylation-related miRNA markers and their correlation with immune infiltration in breast cancer</a></h3><p class="authors"><strong>Wenchuan Zhang</strong>, Shuwan Zhang, Zhe Wang</p>
           <div class="paper-links"><a href="https://doi.org/10.3389/fonc.2022.929363">Paper</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;user=h4loa8kAAAAJ&amp;citation_for_view=h4loa8kAAAAJ:u5HHmVD_uO8C">Scholar</a></div></div>
         </li>
         <li data-topic="other" data-scholar-id="u-x6o8ySG0sC">
-          <div class="venue"><span>Frontiers in Cellular and Infection Microbiology</span>2022</div>
+          <div class="venue"><span data-venue="frontiers-cellular">Frontiers in Cellular and Infection Microbiology</span>2022</div>
           <div><h3><a href="https://doi.org/10.3389/fcimb.2022.1048519">Causal relationship between gut microbes and cardiovascular protein expression</a></h3><p class="authors"><strong>Wenchuan Zhang</strong>, Shuwan Zhang, Feng Zhao, Jinda Du, Zhe Wang</p>
           <div class="paper-links"><a href="https://doi.org/10.3389/fcimb.2022.1048519">Paper</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;user=h4loa8kAAAAJ&amp;citation_for_view=h4loa8kAAAAJ:u-x6o8ySG0sC">Scholar</a></div></div>
         </li>
         <li data-topic="other" data-scholar-id="UeHWp8X0CEIC">
-          <div class="venue"><span>Experimental and Therapeutic Medicine</span>2022</div>
+          <div class="venue"><span data-venue="experimental-medicine">Experimental and Therapeutic Medicine</span>2022</div>
           <div><h3><a href="https://doi.org/10.3892/etm.2022.11710">Lipoblastoma in one adult and 35 pediatric patients: Retrospective analysis of 36 cases</a></h3><p class="authors"><strong>Wenchuan Zhang</strong>, Shuwan Zhang, Zixin Yang, Ying Zhang, Zhe Wang</p>
           <div class="paper-links"><a href="https://doi.org/10.3892/etm.2022.11710">Paper</a><a href="https://scholar.google.com/citations?view_op=view_citation&amp;user=h4loa8kAAAAJ&amp;citation_for_view=h4loa8kAAAAJ:UeHWp8X0CEIC">Scholar</a></div></div>
         </li>
